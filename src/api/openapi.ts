@@ -192,6 +192,7 @@ interface subModelType{
     signal?:AbortSignal
     model?:string
     uuid?:string|number
+    chatType: number
 }
 function getHeaderAuthorization(){
     // if(!gptServerStore.myData.OPENAI_API_KEY){
@@ -246,6 +247,7 @@ export const subModel= async (opt: subModelType)=>{
             "messages": opt.message
            ,stream:true
            ,kid:gptConfigStore.myData.kid
+           ,chat_type: opt.chatType
         }
 
         let headers=   {'Content-Type': 'application/json;charset=UTF-8',
