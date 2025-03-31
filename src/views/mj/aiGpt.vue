@@ -147,8 +147,10 @@ watch(()=>homeStore.myData.act, async (n)=>{
         let historyMesg=  await getMessage();
         mlog('historyMesg', historyMesg );
         //return ;
-        let message= [ {  "role": "system", "content": getSystemMessage(  +uuid2) },
-                ...historyMesg ];
+        // let message= [ {  "role": "system", "content": getSystemMessage(  +uuid2) },
+        //         ...historyMesg ];
+        let message= [...historyMesg ];
+                
         if( dd.fileBase64 && dd.fileBase64.length>0 ){
             if(isCanBase64Model(model)){ 
                 let obj={
