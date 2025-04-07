@@ -757,7 +757,7 @@ load()
 
 		<footer :class="footerClass" class="footer-content" v-if="local!=='draw'">
 			<div class="w-full max-w-screen-xl m-auto">
-				<aiGptInput @handle-clear="handleClear" @export="handleExport" v-if="['gpt-4o-mini','gpt-3.5-turbo-16k'].indexOf(gptConfigStore.myData.model)>-1 || st.inputme "
+				<aiGptInput @handle-clear="handleClear" @export="handleExport" v-if="st.inputme "
 										v-model:modelValue="prompt" :disabled="buttonDisabled"
 										:searchOptions="searchOptions"  :renderOption="renderOption"
 				/>
