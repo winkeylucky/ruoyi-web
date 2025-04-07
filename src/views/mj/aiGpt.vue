@@ -12,7 +12,7 @@ import { t } from "@/locales";
 const emit = defineEmits(['finished']);
 const { addChat , updateChatSome } = useChat()
 const chatStore = useChatStore()
-const st=ref({uuid:'1002', index:-1, chatType:0 });
+const st=ref({uuid:'1002', index:-1, chatType:0, appId:'' });
 const controller = ref<AbortController>( );;// new AbortController();
 const dataSources = computed(() => chatStore.getChatByUuid(+st.value.uuid))
 const ms= useMessage();
@@ -52,10 +52,10 @@ watch(()=>homeStore.myData.act, async (n)=>{
 
         let  uuid2 =  dd.uuid?? uuid;
         st.value.uuid =  uuid2 ;
-        debugger;
         st.value.chatType = dd.chatType;
+        st.value.appId = dd.appId??'';
         const chatSet = new chatSetting(   +st.value.uuid  );
-        const nGptStore =   chatSet.getGptConfig()  ;
+        const nGptStore =   chatSet.getGptConfig();
          mlog('gpt.submit', dd , dd.uuid,  nGptStore ) ;
         let model = nGptStore.model ;//gptConfigStore.myData.model
 
@@ -312,7 +312,8 @@ const submit= (model:string, message:any[],opt?:any)=>{
                 },
                 signal: controller.value.signal,
                 kid: '',
-                chatType: st.value.chatType
+                chatType: st.value.chatType,
+                appId: st.value.appId
             }).then(()=>goFinish() ).catch(e=>{
                 if(e.message!='canceled')  textRz.value.push("\n"+t('mj.fail')+":\n```\n"+(e.reason??JSON.stringify(e,null,2)) +"\n```\n")
                 goFinish();

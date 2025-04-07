@@ -193,6 +193,7 @@ interface subModelType{
     model?:string
     uuid?:string|number
     chatType: number
+    appId: string
 }
 function getHeaderAuthorization(){
     // if(!gptServerStore.myData.OPENAI_API_KEY){
@@ -237,7 +238,6 @@ export const subModel= async (opt: subModelType)=>{
         frequency_penalty = gStore.frequency_penalty??frequency_penalty;
         max_tokens= gStore.max_tokens;
     }
-   
     let body ={
             max_tokens ,
             model ,
@@ -248,6 +248,7 @@ export const subModel= async (opt: subModelType)=>{
            ,stream:true
            ,kid:gptConfigStore.myData.kid
            ,chat_type: opt.chatType
+           ,appId: opt.appId
         }
 
         let headers=   {'Content-Type': 'application/json;charset=UTF-8',
