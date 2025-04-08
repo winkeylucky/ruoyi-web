@@ -108,11 +108,11 @@ const menuOptions = ref([
     key: 'accountSettings',
     icon: renderIcon(settings)
   },
-  {
-    label: '购买套餐',
-    key: 'buy',
-    icon: renderIcon(storefront)
-  },
+  // {
+  //   label: '购买套餐',
+  //   key: 'buy',
+  //   icon: renderIcon(storefront)
+  // },
   {
     label: '退出账号',
     key: 'logout',
