@@ -79,7 +79,7 @@ const text = computed(() => {
         .map(line => line.trim() ? '>' + line : line)  
         .join('\n').replace(/(\r?\n)+/g, '\n>\n');
        
-      return ">Thinking..."+(processedContent) ;
+      return t('mj.thinking')+(processedContent) ;
     });
     value= value.replaceAll('</think>','')
     //mlog('replace', value)
