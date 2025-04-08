@@ -6,6 +6,7 @@ import { ChatLayout } from '@/views/chat/layout'
 import mjlayout from '@/views/mj/layout.vue'
 import lumalayout from '@/views/luma/layout.vue'
 import storelayout from '@/views/store/layout.vue'
+import appslayout from '@/views/apps/layout.vue'
 import fanyilayout from '@/views/fanyi/layout.vue'
 import pptlayout from '@/views/ppt/layout.vue'
 import musiclayout from '@/views/suno/layout.vue'
@@ -136,6 +137,20 @@ const routes: RouteRecordRaw[] = [
         path: 't',
         name: 'store',
         component: () => import('@/views/store/appList.vue'),
+      },
+    ],
+  },
+
+  {
+    path: '/apps',
+    name: 'Apps',
+    component: appslayout,
+    redirect: '/apps/t',
+    children: [
+      {
+        path: 't',
+        name: 'apps',
+        component: () => import('@/views/apps/appList.vue'),
       },
     ],
   },

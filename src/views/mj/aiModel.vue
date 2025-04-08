@@ -103,6 +103,7 @@ const modellist = computed(() => { //
 const ms= useMessage();
 
 const saveChat=(type:string)=>{
+	nGptStore.value.gpts= undefined;
 	chatSet.save(  nGptStore.value );
 	gptConfigStore.setMyData( nGptStore.value );
 	homeStore.setMyData({act:'saveChat'});

@@ -623,7 +623,7 @@ const refresh = () => {
 	}
 	gptsFilterList.value = [num, num1, num2, num3]
 }
-load()
+// load()
 
 </script>
 
