@@ -33,7 +33,7 @@ const goUseGpts= async ( item: gptsType)=>{
 	gptConfigStore.setInit();
 	const saveObj= {model:  `${ item.modelName }` ,gpts:item}
 	gptConfigStore.setMyData(saveObj);
-  chatStore.addHistory({ title: '新建对话', uuid: Date.now(), isEdit: false })
+  chatStore.addHistory({ title: t('chat.newChatButton'), uuid: Date.now(), isEdit: false })
 }
 
 </script>

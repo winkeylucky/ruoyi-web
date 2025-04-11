@@ -35,7 +35,7 @@ onMounted(() => {
 
 function handleAdd() {
 	gptConfigStore.setInit();
-  chatStore.addHistory({ title: '新建对话', uuid: Date.now(), isEdit: false })
+  chatStore.addHistory({ title: t('chat.newChatButton'), uuid: Date.now(), isEdit: false })
   if (isMobile.value)
     appStore.setSiderCollapsed(true)
 }
